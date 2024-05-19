@@ -1,5 +1,8 @@
-import discord
+import os, discord
 import secrets
+
+# set the token to the env var's value if present, otherwise read from file
+token = os.environ['LENIN_TOKEN'] if 'LENIN_TOKEN' in os.environ else secrets.token
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -26,4 +29,4 @@ async def on_message(message):
         await message.channel.send(f"{message.author.mention} Yes, comrade! You are learning the valuable ways of Leninism, you will not be sent to the gulag! Cпасибо!")
         await message.channel.send("https://tenor.com/view/lenin-fun-pride-positivity-colorful-gif-18101101")
 
-client.run(secrets.token)
+client.run(token)
