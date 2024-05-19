@@ -13,7 +13,7 @@ def get_emoji(emoji_name):
 async def on_message(message):
     if message.author == client.user:
         return
-    # if any(x in ourstring for x in ["hello", "something else"])
+
     elif any (word in message.content for word in ['my', 'mine', 'his', 'hers', 'theirs']):
         await message.channel.send(f"{message.author.mention} Uh oh! It appears that you meant to say 'our'. In Soviet discord, there are no personal belongings.")
         await message.channel.send((get_emoji('flag_su') + ' ') * 3)
